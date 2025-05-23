@@ -1,31 +1,30 @@
-# FC25 Top 100 Players
 
-A **Next.js 14** + **Tailwind CSS** web‑app that lists the **Top 100 rated players in EA Sports FC 25**.
+# EA FC 25 – Top 100 Players
 
-- **Data source:** Futbin (you said you have permission). The site fetches `/players/top100` daily via the API route.
-- **Hosting:** Optimised for Vercel – zero config.
-- **Features:** search, sort, responsive grid, light/dark toggle.
+This is a minimal **Next.js 14** project ready to be deployed to **Vercel**.
 
-## Quick start
+## Development
 
 ```bash
-git clone <your‑repo‑url>
-cd fc25-top100
-npm install
-
-# add your Futbin key
-cp .env.example .env.local
-# open .env.local and put your key
-
-npm run dev          # local dev at http://localhost:3000
-npm run build        # production build
+npm install   # (or pnpm install / yarn)
+npm run dev
 ```
 
-## Deploy to Vercel
+Open http://localhost:3000 to see the website.
 
-1. Push the project to a GitHub repo.
-2. In Vercel, “New Project” → import the repo.
-3. In **Environment Variables** add `FUTBIN_API_KEY` (same value as locally).
-4. Click **Deploy** – done 🚀
+## Deployment
 
-The API route will revalidate every 24 h (`s-maxage=86400`). If the key is missing or the request fails, it falls back to the bundled sample JSON so the build never breaks.
+Push the repository to GitHub, then import it in Vercel. Vercel detects Next.js automatically and will run:
+
+```bash
+npm install
+npm run build
+```
+
+Make sure the `pages` (or `app`) directory exists at project root — otherwise Vercel will fail with  
+“_Couldn't find any `pages` or `app` directory_”.
+
+## Customizing
+
+* Replace the placeholder player data in **pages/index.js** with real data from Futbin.
+* Add Tailwind, UI libraries, or your own styling as you wish.
